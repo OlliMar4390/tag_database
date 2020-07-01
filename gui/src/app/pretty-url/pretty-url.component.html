@@ -1,0 +1,30 @@
+<div *ngIf=urlParts fxLayout=row>
+  
+  <div style="width:300px"
+        fxLayout=column
+        ngClass="border-right urlparts">
+
+    <span>{{urlParts['hostname']}}</span>
+
+    <span *ngIf="urlParts['hash']">
+      {{urlParts['hash']}}
+    </span>
+
+    <span *ngIf="urlParts['arguments']">
+      {{urlParts['arguments']}}
+    </span>
+
+  </div>
+
+
+  <div *ngIf="urlParts['path']"
+        fxLayout=column
+        ngClass="urlparts">
+
+    <div *ngFor="let path of urlParts['path']">
+      <span>{{path}}</span>
+    </div>
+
+  </div>
+
+</div>

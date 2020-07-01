@@ -1,0 +1,17 @@
+<form [formGroup]="domainFormGroup">
+
+  <mat-select formControlName="domain"
+              *ngIf=domains$
+              placeholder="Choose a domain"
+              required
+  >
+
+    <mat-option *ngFor="let domain of domains$ | async" [value]="domain">
+      {{ domain }}
+    </mat-option>
+    
+  </mat-select>
+
+  <app-error-div [errMess]="errMess"></app-error-div>
+
+</form>

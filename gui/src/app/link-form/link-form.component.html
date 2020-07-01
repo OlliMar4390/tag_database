@@ -1,0 +1,48 @@
+<div class="container"
+     fxLayout="column"
+     fxLayout.sm="column"
+     fxLayout.xs="column"
+     fxLayoutAlign.gt-md="space-around center"
+     fxLayoutGap="10px"
+>
+
+  <div fxFlex fxFlexOffset="20px" class="form-size">
+
+    <form [formGroup]="linkForm"
+          (ngSubmit)="onSubmit()"
+          [@expand]
+          noValidate
+    >
+
+        <app-domain-form></app-domain-form>
+
+        <app-url-form></app-url-form>
+
+        <div fxLayout=row>
+          <app-tag-form [domainComponent]="domainComponent" class="half-width"></app-tag-form>
+          <!--
+          recommendedTags
+          -->
+        </div>
+
+        <app-description-form></app-description-form>
+
+        <button mat-button
+                type="submit"
+                class="text-floral-white"
+                [disabled]="linkForm.invalid || !tagComponent.tagFields.dirty"
+        >
+          Submit
+        </button>
+        <p class="smallerFontSize">* Required fields (at least one entry).</p>
+    </form>
+
+    <div [hidden]="errMess || linkForm" [@expand]>
+      <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+    </div>
+    
+    <app-error-div [errMess]="errMess"></app-error-div>
+
+  </div>
+
+</div>

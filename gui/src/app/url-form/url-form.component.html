@@ -1,0 +1,19 @@
+<form [formGroup]="urlFormGroup">
+  <mat-form-field class="full-width">
+    <input matInput
+            formControlName="url"
+            placeholder="URL"
+            type="text"
+            required
+            #url
+    >
+
+    <mat-error *ngIf="!urlFormGroup.valid">
+      {{validationMessage}}
+    </mat-error>
+    
+  </mat-form-field>    
+</form>
+  
+<app-pretty-url [urlParts]="urlParts"></app-pretty-url>
+  

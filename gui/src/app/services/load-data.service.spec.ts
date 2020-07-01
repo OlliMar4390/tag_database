@@ -1,0 +1,20 @@
+import { TestBed } from '@angular/core/testing';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+
+import { LoadDataService } from './load-data.service';
+
+describe('LoadDataService', () => {
+  let service: LoadDataService;
+  let httpClient: HttpClient;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({imports: [ HttpClientTestingModule ],});
+    service = TestBed.inject(LoadDataService);
+    httpClient = TestBed.inject(HttpClient);
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});
